@@ -10,7 +10,7 @@ static_resources:
       - name: envoy.filters.network.http_connection_manager
         typed_config:
           "@type": type.googleapis.com/envoy.extensions.filters.network.http_connection_manager.v3.HttpConnectionManager
-          stat_prefix: hello_world_service
+          stat_prefix: httpbin
           http_filters:
           - name: envoy.filters.http.router
           route_config:
@@ -23,17 +23,17 @@ static_resources:
                   path: "/one"
                 route:
                   prefix_rewrite: "/ip"
-                  cluster: hello_world_cluster
+                  cluster: httpbin-1
               - match:
                   path: "/two"
                 route:
                   prefix_rewrite: "/user-agent"
-                  cluster: second_cluster
+                  cluster: httpbin-2
   clusters:
-  - name: hello_world_cluster
+  - name: httbin-1
     connect_timeout: 5s
     load_assignment:
-      cluster_name: hello_world_cluster
+      cluster_name: httpbin-1
       endpoints:
       - lb_endpoints:
         - endpoint:
@@ -41,10 +41,10 @@ static_resources:
               socket_address:
                 address: 127.0.0.1
                 port_value: 8100
-  - name: second_cluster
+  - name: httbin-2
     connect_timeout: 5s
     load_assignment:
-      cluster_name: second_cluster
+      cluster_name: httpbin-2
       endpoints:
       - lb_endpoints:
         - endpoint:

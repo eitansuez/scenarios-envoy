@@ -12,16 +12,20 @@
         "text": "func-e/index.md"
       },
       {
-        "title": "A minimal configuration",
+        "title": "Minimal configuration",
         "text": "minimal/index.md"
       },
       {
-        "title": "Sending direct responses",
+        "title": "Direct responses",
         "text": "direct-response/index.md"
       },
       {
         "title": "Load balancing",
         "text": "lb/index.md"
+      },
+      {
+        "title": "Routing",
+        "text": "routing/index.md"
       }
     ],
     "assets": {
