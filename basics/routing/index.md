@@ -18,6 +18,12 @@ Run Envoy in the background:
 func-e run --config-path routing.yaml &
 ```{{exec}}
 
+Check that the two docker containers are still running:
+
+```
+docker ps
+```{{exec}}
+
 Send a request to Envoy, targeting the first backend:
 
 ```
