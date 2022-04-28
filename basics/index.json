@@ -12,8 +12,12 @@
         "text": "func-e/index.md"
       },
       {
-        "title": "A minimal conifguration",
+        "title": "A minimal configuration",
         "text": "minimal/index.md"
+      },
+      {
+        "title": "Sending direct responses",
+        "text": "direct-response/index.md"
       }
     ],
     "assets": {

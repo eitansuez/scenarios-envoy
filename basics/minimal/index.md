@@ -23,4 +23,4 @@ curl -v localhost:10000
 
 Envoy does not yet know how to route the request.
 
-To stop Envoy, bring the process back to the foreground with `fg`, then press `ctrl+c`.
+Stop Envoy: bring the process back to the foreground with `fg`, then press `ctrl+c`.
