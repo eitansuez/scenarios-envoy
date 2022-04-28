@@ -5,7 +5,7 @@ Review the file's contents:
 
 ```
 cat minimal-config.yaml
-```
+```{{exec}}
 
 Envoy will listen on port 10000, and is configured with no filters.
 
@@ -23,4 +23,4 @@ curl -v localhost:10000
 
 Envoy does not yet know how to route the request.
 
-To stop envoy, bring the process back to the foreground with `fg`, then press `ctrl+c`.
+To stop Envoy, bring the process back to the foreground with `fg`, then press `ctrl+c`.
