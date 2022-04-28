@@ -18,10 +18,10 @@
     ],
     "assets": {
       "host01": [
-        {"file": "minimal-config.yaml", "target": "/root/", "chmod": "+w"},
-        {"file": "direct-response.yaml", "target": "/root/", "chmod": "+w"},
-        {"file": "clusters.yaml", "target": "/root/", "chmod": "+w"},
-        {"file": "routing.yaml", "target": "/root/", "chmod": "+w"}
+        {"file": "minimal-config.yaml", "target": "/root", "chmod": "+w"},
+        {"file": "direct-response.yaml", "target": "/root", "chmod": "+w"},
+        {"file": "clusters.yaml", "target": "/root", "chmod": "+w"},
+        {"file": "routing.yaml", "target": "/root", "chmod": "+w"}
       ]
     }
   },
