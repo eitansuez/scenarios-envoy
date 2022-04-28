@@ -1,4 +1,4 @@
-The file `direct-response.yaml` expands on the previous configuraiton file.
+The file `direct-response.yaml` expands on the previous configuration file.
 
 Review the file's contents:
 
