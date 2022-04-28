@@ -1,5 +1,5 @@
-#!/bin/sh
+#!/bin/bash
 
 echo "Installing func-e CLI..."
 curl https://func-e.io/install.sh | bash -s -- -b /usr/local/bin
-echo DONE
+echo "Done"
