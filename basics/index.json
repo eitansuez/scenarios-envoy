@@ -9,23 +9,23 @@
     "steps": [
       {
         "title": "func-e",
-        "text": "func-e/index.md"
+        "text": "func-e.md"
       },
       {
         "title": "Minimal configuration",
-        "text": "minimal/index.md"
+        "text": "minimal.md"
       },
       {
         "title": "Direct responses",
-        "text": "direct-response/index.md"
+        "text": "direct-response.md"
       },
       {
         "title": "Load balancing",
-        "text": "lb/index.md"
+        "text": "lb.md"
       },
       {
         "title": "Routing",
-        "text": "routing/index.md"
+        "text": "routing.md"
       }
     ],
     "finish": {
