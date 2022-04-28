@@ -1,6 +1,6 @@
 Instead of encoding a response directly in the Envoy configuration, we wish configure Envoy to proxy requests to a backend service.
 
-In fact, why not create two backend services, and watch Envoy load-balance requests between the two endpoints.
+In fact, why not create two backend services, and watch Envoy load-balance requests between the two endpoints?
 
 Use docker to run an instance of [httpbin](https://httpbin.org/) on port 8100:
 
@@ -26,8 +26,9 @@ Next, inspect the contents of the Envoy configuration file named `clusters.yaml`
 cat clusters.yaml
 ```{{exec}}
 
-The route configuration now routes requests to the cluster named httpbin, which is defined in a separate configuration section.
-Note how the cluster is configured with two endpoints using an address and port number matching the two docker instances you just launched.
+The route configuration now routes requests to the cluster named `httpbin`, defined in a separate configuration section.
+
+Note how the cluster is configured with two endpoints using an address and port number matching each of the two docker instances you just launched.
 
 Run Envoy in the background:
 
