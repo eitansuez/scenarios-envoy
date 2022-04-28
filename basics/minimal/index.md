@@ -7,9 +7,9 @@ Review the file's contents:
 cat minimal-config.yaml
 ```{{exec}}
 
-Envoy will listen on port 10000, and is configured with no filters.
+envoy will listen on port 10000, and is configured with no filters.
 
-Run Envoy in the background:
+Run envoy in the background:
 
 ```
 func-e run --config-path minimal-config.yaml &
@@ -21,6 +21,6 @@ Try to send a request to `localhost:10000`:
 curl -v localhost:10000
 ```{{exec}}
 
-Envoy does not yet know how to route the request.
+envoy does not yet know how to route the request.
 
-Stop Envoy: bring the process back to the foreground with `fg`, then press `ctrl+c`.
+Stop envoy: bring the process back to the foreground with `fg`, then press `ctrl+c`.

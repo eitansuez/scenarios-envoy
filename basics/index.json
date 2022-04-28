@@ -1,9 +1,9 @@
 {
-  "title": "Envoy basics",
-  "description": "An introduction to the Envoy proxy",
+  "title": "envoy basics",
+  "description": "An introduction to the envoy proxy",
   "details": {
     "intro": {
-      "text": "index.md",
+      "text": "intro.md",
       "foreground": "foreground.sh"
     },
     "steps": [
@@ -28,6 +28,9 @@
         "text": "routing/index.md"
       }
     ],
+    "finish": {
+      "text": "summary.md"
+    },
     "assets": {
       "host01": [
         {"file": "minimal-config.yaml", "target": "/root", "chmod": "+w"},

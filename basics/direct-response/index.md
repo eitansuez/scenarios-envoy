@@ -6,9 +6,9 @@ Review the file's contents:
 cat direct-response.yaml
 ```{{exec}}
 
-Envoy now has an HTTP Connection Manager filter, configured to send a direct response back to the caller.
+envoy now has an HTTP Connection Manager filter, configured to send a direct response back to the caller.
 
-Run Envoy in the background:
+Run envoy in the background:
 
 ```
 func-e run --config-path direct-response.yaml &
@@ -22,4 +22,4 @@ curl -v localhost:10000
 
 We now get an HTTP 200 response, with the "Hello!" response body.
 
-Stop Envoy: bring the process back to the foreground with `fg`, then press `ctrl+c`.
+Stop envoy: bring the process back to the foreground with `fg`, then press `ctrl+c`.

@@ -1,4 +1,4 @@
-In this tutorial you will use the [func-e](https://func-e.io/) CLI to run Envoy.
+In this tutorial you will use the [func-e](https://func-e.io/) CLI to run envoy.
 
 Verify that func-e is installed
 
