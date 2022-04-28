@@ -1,0 +1,19 @@
+{
+  "title": "Envoy basics",
+  "description": "An introduction to the Envoy proxy",
+  "details": {
+    "intro": {
+      "text": "index.md",
+      "background": "install.sh"
+    },
+    "steps": [
+      {
+        "title": "func-e",
+        "text": "func-e/index.md"
+      }
+    ]
+  },
+  "backend": {
+    "imageid": "ubuntu20.04"
+  }
+}
