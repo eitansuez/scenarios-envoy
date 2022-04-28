@@ -10,7 +10,7 @@ static_resources:
       - name: envoy.filters.network.http_connection_manager
         typed_config:
           "@type": type.googleapis.com/envoy.extensions.filters.network.http_connection_manager.v3.HttpConnectionManager
-          stat_prefix: hello_world_service
+          stat_prefix: httpbin
           http_filters:
           - name: envoy.filters.http.router
           route_config:
@@ -22,12 +22,12 @@ static_resources:
               - match:
                   prefix: "/"
                 route:
-                  cluster: hello_world_cluster
+                  cluster: httpbin
   clusters:
-  - name: hello_world_cluster
+  - name: httpbin
     connect_timeout: 5s
     load_assignment:
-      cluster_name: hello_world_cluster
+      cluster_name: httpbin
       endpoints:
       - lb_endpoints:
         - endpoint:

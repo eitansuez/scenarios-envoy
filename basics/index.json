@@ -18,6 +18,10 @@
       {
         "title": "Sending direct responses",
         "text": "direct-response/index.md"
+      },
+      {
+        "title": "Load balancing",
+        "text": "lb/index.md"
       }
     ],
     "assets": {
