@@ -4,7 +4,7 @@
   "details": {
     "intro": {
       "text": "index.md",
-      "background": "install.sh"
+      "foreground": "install.sh"
     },
     "steps": [
       {
