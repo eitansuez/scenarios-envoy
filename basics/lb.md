@@ -2,23 +2,23 @@ Instead of encoding a response directly in the envoy configuration, we wish conf
 
 In fact, why not create two backend services, and watch envoy load-balance requests between the two endpoints?
 
-Use docker to run an instance of [httpbin](https://httpbin.org/) on port 8100:
+1. Use docker to run an instance of [httpbin](https://httpbin.org/) on port 8100:
 
-```
-docker run -d -p 8100:80 kennethreitz/httpbin
-```{{exec}}
+    ```
+    docker run -d -p 8100:80 kennethreitz/httpbin
+    ```{{exec}}
 
-Run a second instance on port 8200:
+1. Run a second instance on port 8200:
 
-```
-docker run -d -p 8200:80 kennethreitz/httpbin
-```{{exec}}
+    ```
+    docker run -d -p 8200:80 kennethreitz/httpbin
+    ```{{exec}}
 
-Verify that the two docker containers are up and running:
+1. Verify that the two docker containers are up and running:
 
-```
-docker ps
-```{{exec}}
+    ```
+    docker ps
+    ```{{exec}}
 
 Next, inspect the contents of the envoy configuration file named `clusters.yaml`:
 
@@ -30,22 +30,22 @@ The route configuration now routes requests to the cluster named `httpbin`, defi
 
 Note how the cluster is configured with two endpoints using an address and port number matching each of the two docker instances you just launched.
 
-Run envoy in the background:
+1. Run envoy in the background:
 
-```
-func-e run --config-path clusters.yaml &
-```{{exec}}
+    ```
+    func-e run --config-path clusters.yaml &
+    ```{{exec}}
 
-Send a token request envoy:
+1. Send a token request to envoy:
 
-```
-curl localhost:10000/headers
-```{{exec}}
+    ```
+    curl localhost:10000/headers
+    ```{{exec}}
 
-And another:
+    And another:
 
-```
-curl localhost:10000/html
-```{{exec}}
+    ```
+    curl localhost:10000/html
+    ```{{exec}}
 
 Stop envoy: bring the process back to the foreground with `fg`, then press `ctrl+c`.

@@ -1,25 +1,25 @@
 The file `direct-response.yaml` expands on the previous configuration file.
 
-Review the file's contents:
+1. Review the file's contents:
 
-```
-cat direct-response.yaml
-```{{exec}}
+    ```
+    cat direct-response.yaml
+    ```{{exec}}
 
-envoy now has an HTTP Connection Manager filter, configured to send a direct response back to the caller.
+    envoy now has an HTTP Connection Manager filter, configured to send a direct response back to the caller.
 
-Run envoy in the background:
+1. Run envoy in the background:
 
-```
-func-e run --config-path direct-response.yaml &
-```{{exec}}
+    ```
+    func-e run --config-path direct-response.yaml &
+    ```{{exec}}
 
-Send a request to `localhost:10000`:
+1. Send a request to `localhost:10000`:
 
-```
-curl -v localhost:10000
-```{{exec}}
+    ```
+    curl -v localhost:10000
+    ```{{exec}}
 
-We now get an HTTP 200 response, with the "Hello!" response body.
+    We now get an HTTP 200 response, with the "Hello!" response body.
 
 Stop envoy: bring the process back to the foreground with `fg`, then press `ctrl+c`.
