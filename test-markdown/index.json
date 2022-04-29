@@ -1,0 +1,21 @@
+{
+  "title": "envoy basics",
+  "description": "An introduction to the envoy proxy",
+  "details": {
+    "intro": {
+      "text": "intro.md"
+    },
+    "steps": [
+      {
+        "title": "Test Markdown",
+        "text": "test-markdown.md"
+      }
+    ],
+    "finish": {
+      "text": "summary.md"
+    }
+  },
+  "backend": {
+    "imageid": "ubuntu20.04"
+  }
+}
