@@ -1,30 +1,27 @@
 
-Istio has been installed like described here:
+Istio has been installed using the minimal profile.
 
-https://istio.io/latest/docs/setup/getting-started
+1. Check the installed version:
 
-Check the installed version:
+    ```
+    istioctl version
+    ```{{exec}}
 
-```plain
-istioctl version
+1. Label the default namespace for automatic injection:
+
+    ```
+    k label ns default istio-injection=enabled
+    ```{{exec}}
+
+1. Deploy the `helloworld` sample:
+
+    ```
+    k apply -f istio-1.13.3/samples/helloworld/helloworld.yaml
+    ```{{exec}}
+
+Wait for the two pods to be ready.
+
+```
+k wait deploy/helloworld-v1 --for condition=available --timeout=3m
+k wait deploy/helloworld-v2 --for condition=available --timeout=3m
 ```{{exec}}
-
-Next we install the [helloworld example](https://github.com/istio/istio/tree/master/samples/helloworld):
-
-```plain
-kubectl apply -f /root/istio-1.13.3/samples/helloworld/helloworld.yaml
-kubectl apply -f /root/istio-1.13.3/samples/helloworld/helloworld-gateway.yaml
-kubectl wait deploy/helloworld-v1 --for condition=available --timeout=1h
-kubectl wait deploy/helloworld-v2 --for condition=available --timeout=1h
-```{{exec}}
-
-Now we port-forward to the Istio ingressgateway service:
-
-```plain
-kubectl port-forward -n istio-system --address 0.0.0.0 service/istio-ingressgateway 1234:80
-```{{exec}}
-
-Finally [ACCESS]({{TRAFFIC_HOST1_1234}}/hello) the helloworld app through Istio:
-
-
-There are also more examples to try in `/root/istio-1.13.3/samples`.
