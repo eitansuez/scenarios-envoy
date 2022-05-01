@@ -22,6 +22,7 @@
         {"file": "k8s.sh", "target": "/ks", "chmod": "+x"},
         {"file": "wait-init.sh", "target": "/ks", "chmod": "+x"},
         {"file": "demo.yaml", "target": "/tmp", "chmod": "+x"}
+        {"file": "minimal-with-cni.yaml", "target": "/tmp", "chmod": "+x"}
       ]
     }
   },
