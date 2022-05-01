@@ -1,6 +1,6 @@
 {
-  "title": "Playground",
-  "description": "This playground has Istio installed on Kubernetes",
+  "title": "Isito",
+  "description": "Istio minimal profile atop Kubernetes",
   "details": {
       "steps": [
       {
