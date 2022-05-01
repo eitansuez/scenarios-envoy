@@ -7,3 +7,19 @@ spec:
       enabled: false
     cni:
       enabled: true
+    pilot:
+      k8s:
+        env:
+          - name: PILOT_TRACE_SAMPLING
+            value: "1"
+        resources:
+          requests:
+            cpu: 0m
+            memory: 0Mi
+  values:
+    global:
+      proxy:
+        resources:
+          requests:
+            cpu: 0m
+            memory: 0Mi
