@@ -10,7 +10,7 @@
       {
         "title": "Sidecar Injection",
         "text": "sidecar-injection.md"
-      },
+      }
     ],
     "finish": {
       "text": "summary.md"
