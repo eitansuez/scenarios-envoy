@@ -26,6 +26,10 @@
       {
         "title": "Study the Envoy configuration",
         "text": "study-envoy-config.md"
+      },
+      {
+        "title": "Configure traffic policy",
+        "text": "destination-rules.md"
       }
     ],
     "finish": {
