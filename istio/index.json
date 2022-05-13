@@ -22,6 +22,10 @@
       {
         "title": "Observe load balancing",
         "text": "observe-lb.md"
+      },
+      {
+        "title": "Study the Envoy configuration",
+        "text": "study-envoy-config.md"
       }
     ],
     "finish": {
