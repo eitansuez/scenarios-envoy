@@ -1,15 +1,19 @@
 {
   "title": "Istio Basics",
-  "description": "This playground has Istio installed on Kubernetes",
+  "description": "Routing and Load Balancing",
   "details": {
       "steps": [
       {
-        "title": "Play with Istio",
-        "text": "step1/text.md"
-      }
+        "title": "Introduction",
+        "text": "intro.md"
+      },
+      {
+        "title": "Sidecar Injection",
+        "text": "sidecar-injection.md"
+      },
     ],
     "finish": {
-      "text": "finish/finish.md"
+      "text": "summary.md"
     },
     "intro": {
       "text": "init/init.md",
