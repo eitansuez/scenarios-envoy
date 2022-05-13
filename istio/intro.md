@@ -1,7 +1,9 @@
 
-A copy of the Istio distribution has been downloaded.
+A copy of the Istio distribution has been downloaded and is being installed.
 
-Note the Istio folder in your home directory:
+Please wait until that installation finishes.
+
+Note the istio folder in your home directory:
 
 ```
 ls

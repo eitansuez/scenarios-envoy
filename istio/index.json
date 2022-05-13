@@ -14,6 +14,10 @@
       {
         "title": "Deploy a workload",
         "text": "deploy-httpbin.md"
+      },
+      {
+        "title": "Observe load balancing",
+        "text": "observe-lb.md"
       }
     ],
     "finish": {
