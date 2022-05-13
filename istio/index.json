@@ -10,6 +10,10 @@
       {
         "title": "Sidecar Injection",
         "text": "sidecar-injection.md"
+      },
+      {
+        "title": "Deploy a workload",
+        "text": "deploy-httpbin.md"
       }
     ],
     "finish": {

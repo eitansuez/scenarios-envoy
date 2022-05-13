@@ -1,2 +1,2 @@
 <br>
-This playground has Istio installed on Kubernetes
+This scenario explores Istio routing and load-balancing.
