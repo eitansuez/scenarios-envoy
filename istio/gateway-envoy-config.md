@@ -45,4 +45,4 @@ It's worthwhile taking a close look at the output. Below I have removed some of 
         ...
 ```
 
-Challenge: Review the hand-written configuration from the previous lab.  How does it compare to the above generated configuration?
+Challenge: Review the hand-written configuration from the "Intro to Envoy" lab.  How does it compare to the above generated configuration?

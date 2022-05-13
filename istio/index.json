@@ -73,6 +73,7 @@
       }
     ],
     "finish": {
+      "title": "Summary",
       "text": "summary.md"
     },
     "intro": {
