@@ -8,6 +8,10 @@
         "text": "intro.md"
       },
       {
+        "title": "Verify installation",
+        "text": "verify-install.md"
+      },
+      {
         "title": "Sidecar Injection",
         "text": "sidecar-injection.md"
       },

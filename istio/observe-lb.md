@@ -17,18 +17,18 @@ Verify that requests from `sleep` are load-balanced across the two `httpbin` end
     kubectl logs --follow $HTTPBIN_POD_1 -c istio-proxy
     ```{{exec}}
 
-    In a second terminal, run:
+    In a second terminal (open a new tab), run:
 
     ```shell
     HTTPBIN_POD_2=$(kubectl get pod -l app=httpbin -ojsonpath='{.items[1].metadata.name}')
     kubectl logs --follow $HTTPBIN_POD_2 -c istio-proxy
     ```{{exec}}
 
-1. Make repeated calls from the `sleep` container to the httbin service and observe which of the two `httpbin` pods receives the request.
+1. Open a third tab, and make repeated calls from the `sleep` container to the httbin service to observe which of the two `httpbin` pods receives the request.
 
     ```shell
     SLEEP_POD=$(kubectl get pod -l app=sleep -ojsonpath='{.items[0].metadata.name}')
     kubectl exec $SLEEP_POD -it -- curl httpbin:8000/html
-    ```
+    ```{{exec}}
 
-You can stop following the logs by pressing ++ctrl+c++ and close the first two terminal windows.
+You can stop following the logs by pressing `Ctrl+C`.

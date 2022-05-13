@@ -26,4 +26,9 @@ kubectl get pod -n default
 
 Challenge: can you discover the name of the sidecar container?
 
-Hint: describe any of the pods in the default namespace and study the `Containers` section.
+<details>
+  <summary>Hint<summary>
+  <p>
+  Describe any of the pods in the default namespace and study the `Containers` section.
+  </p>
+</details>
