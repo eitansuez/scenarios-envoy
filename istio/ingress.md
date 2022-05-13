@@ -66,4 +66,4 @@ kubectl apply -f gw-virtual-service.yaml
 
 The bare endpoint will still return a 404.
 
-However, the `/one` and `/two` endpoints should now be functional, and return the ip and user-agent responses from each httpbin deployment, respectively.
+However, the [`/one`]({{TRAFFIC_HOST1_1234}}/one) and [`/two`]({{TRAFFIC_HOST1_1234}}/two) endpoints should now be functional, and return the ip and user-agent responses from each httpbin deployment, respectively.
