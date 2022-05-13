@@ -1,5 +1,5 @@
 {
-  "title": "Playground",
+  "title": "Istio Basics",
   "description": "This playground has Istio installed on Kubernetes",
   "details": {
       "steps": [
@@ -19,7 +19,10 @@
     "assets": {
       "host01": [
         {"file": "wait-background.sh", "target": "/ks", "chmod": "+x"},
-        {"file": "demo.yaml", "target": "/tmp", "chmod": "+x"}
+        {"file": "demo.yaml", "target": "/tmp", "chmod": "+x"},
+        {"file": "artifacts/httpbin.yaml", "target": "/root", "chmod": "+w"},
+        {"file": "artifacts/sleep.yaml", "target": "/root", "chmod": "+w"},
+        {"file": "artifacts/destination-rule.yaml", "target": "/root", "chmod": "+w"}
       ]
     }
   },
