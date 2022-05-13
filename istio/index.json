@@ -1,6 +1,6 @@
 {
-  "title": "Istio",
-  "description": "Istio minimal profile atop Kubernetes",
+  "title": "Playground",
+  "description": "This playground has Istio installed on Kubernetes",
   "details": {
       "steps": [
       {
@@ -9,23 +9,21 @@
       }
     ],
     "finish": {
-      "text": "finish.md"
+      "text": "finish/finish.md"
     },
     "intro": {
       "text": "init/init.md",
-      "courseData": "init/background.sh",
-      "code": "init/foreground.sh"
+      "background": "init/background.sh",
+      "foreground": "init/foreground.sh"
     },
     "assets": {
       "host01": [
-        {"file": "init.sh", "target": "/ks", "chmod": "+x"},
-        {"file": "k8s.sh", "target": "/ks", "chmod": "+x"},
-        {"file": "wait-init.sh", "target": "/ks", "chmod": "+x"},
-        {"file": "minimal-with-cni.yaml", "target": "/tmp"}
+        {"file": "wait-background.sh", "target": "/ks", "chmod": "+x"},
+        {"file": "demo.yaml", "target": "/tmp", "chmod": "+x"}
       ]
     }
   },
   "backend": {
-    "imageid": "kubernetes-kubeadm-2nodes-ubuntu20.04"
+    "imageid": "kubernetes-kubeadm-2nodes"
   }
 }

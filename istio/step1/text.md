@@ -1,27 +1,31 @@
 
-Istio has been installed using the minimal profile.
+Istio has been installed like described [here](https://istio.io/latest/docs/setup/getting-started).
 
-1. Check the installed version:
+Check the installed version:
 
-    ```
-    istioctl version
-    ```{{exec}}
-
-1. Label the default namespace for automatic injection:
-
-    ```
-    k label ns default istio-injection=enabled
-    ```{{exec}}
-
-1. Deploy the `helloworld` sample:
-
-    ```
-    k apply -f istio-1.13.3/samples/helloworld/helloworld.yaml
-    ```{{exec}}
-
-Wait for the two pods to be ready.
-
-```
-k wait deploy/helloworld-v1 --for condition=available --timeout=3m
-k wait deploy/helloworld-v2 --for condition=available --timeout=3m
+```plain
+istioctl version
 ```{{exec}}
+
+<br>
+
+### Access Istio
+We port-forward to the Istio ingressgateway service:
+
+```plain
+kubectl port-forward -n istio-system --address 0.0.0.0 service/istio-ingressgateway 1234:80
+```{{exec}}
+
+And then [ACCESS]({{TRAFFIC_HOST1_1234}}) Istio <small>(or [select the port here]({{TRAFFIC_SELECTOR}}))</small>.
+
+> If there are no Istio Gateways and VirtualServices then an error will be thrown
+
+
+### Install samples
+There are samples to install in `/root/istio-1.13.3/samples`.
+
+For guided Istio samples see:
+
+[Helloworld Sample](https://killercoda.com/istio/scenario/samples-helloworld)
+
+[Bookinfo Sample](https://killercoda.com/istio/scenario/samples-bookinfo)
