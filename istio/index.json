@@ -30,6 +30,10 @@
       {
         "title": "Configure traffic policy",
         "text": "destination-rules.md"
+      },
+      {
+        "title": "Routing Configuration",
+        "text": "virtual-service.md"
       }
     ],
     "finish": {
