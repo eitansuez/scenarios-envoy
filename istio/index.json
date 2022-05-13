@@ -46,6 +46,30 @@
       {
         "title": "Gateway Envoy Configuration",
         "text": "gateway-envoy-config.md"
+      },
+      {
+        "title": "Beyond traffic management",
+        "text": "sec-obs-intro.md"
+      },
+      {
+        "title": "Security",
+        "text": "security-overview.md"
+      },
+      {
+        "title": "Explore Observability",
+        "text": "obs-overview.md"
+      },
+      {
+        "title": "Deploy observability addons",
+        "text": "obs-addons.md"
+      },
+      {
+        "title": "Generate a load",
+        "text": "gen-load.md"
+      },
+      {
+        "title": "Explore the dashboards",
+        "text": "explore-dashboards.md"
       }
     ],
     "finish": {
