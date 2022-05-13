@@ -42,6 +42,10 @@
       {
         "title": "Ingress",
         "text": "ingress.md"
+      },
+      {
+        "title": "Gateway Envoy Configuration",
+        "text": "gateway-envoy-config.md"
       }
     ],
     "finish": {

@@ -11,17 +11,21 @@ Note that the gateway has a corresponding LoadBalancer type service:
 
 ```shell
 kubectl get svc -n istio-system
-```
+```{{exec}}
 
 In this environment, we can port-forward to the Istio ingressgateway service:
 
 ```plain
-kubectl port-forward -n istio-system --address 0.0.0.0 service/istio-ingressgateway 1234:80
+kubectl port-forward -n istio-system --address 0.0.0.0 service/istio-ingressgateway 1234:80 &
 ```{{exec}}
+
+Note that the above command is now running in the background.  To terminate it, first bring it to the foreground with `fg` and then press `Ctrl+C`.
 
 And then [access]({{TRAFFIC_HOST1_1234}}) Istio.
 
-The Gateway is not yet configured, so you should get back a "connection refused" message.
+The Gateway is not yet configured, so you should get back a "connection refused" or "bad gateway" message.
+
+Let's fix that..
 
 ### Configure the gateway
 
