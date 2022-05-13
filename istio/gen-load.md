@@ -10,6 +10,5 @@ kubectl port-forward -n istio-system --address 0.0.0.0 service/istio-ingressgate
 The following command will "curl" both endpoints every second:
 
 ```
-for ((i=1;i<=600;i++)); do curl {{TRAFFIC_HOST1_1234}}/one; curl {{TRAFFIC_HOST1_1234}}/two; sleep 1; done
+for ((i=1;i<=600;i++)); do curl {{TRAFFIC_HOST1_1234/one; curl TRAFFIC_HOST1_1234}}/two; sleep 1; done
 ```{{exec}}
-
