@@ -32,8 +32,12 @@
         "text": "destination-rules.md"
       },
       {
-        "title": "Routing Configuration",
+        "title": "Apply Routing Configuration",
         "text": "virtual-service.md"
+      },
+      {
+        "title": "Verify Routing Configuration",
+        "text": "verify-routing.md"
       }
     ],
     "finish": {
@@ -50,7 +54,9 @@
         {"file": "demo.yaml", "target": "/tmp", "chmod": "+x"},
         {"file": "artifacts/httpbin.yaml", "target": "/root", "chmod": "+w"},
         {"file": "artifacts/sleep.yaml", "target": "/root", "chmod": "+w"},
-        {"file": "artifacts/destination-rule.yaml", "target": "/root", "chmod": "+w"}
+        {"file": "artifacts/destination-rule.yaml", "target": "/root", "chmod": "+w"},
+        {"file": "artifacts/httpbin-2.yaml", "target": "/root", "chmod": "+w"},
+        {"file": "artifacts/virtual-service.yaml", "target": "/root", "chmod": "+w"}
       ]
     }
   },

@@ -1,7 +1,6 @@
 ### Destination Rules
 
-With Istio, you can apply the [DestinationRule](https://istio.io/latest/docs/reference/config/networking/destination-rule/)
-CRD (Custom Resource Definition) to configure traffic policy: the details of how clients call a service.
+With Istio, you can apply the [DestinationRule](https://istio.io/latest/docs/reference/config/networking/destination-rule/) CRD (Custom Resource Definition) to configure traffic policy: the details of how clients call a service.
 
 Specifically, you can configure:
 
@@ -10,13 +9,9 @@ Specifically, you can configure:
 - **Outlier detection**: under what conditions to evict an unhealthy endpoints, and for how long
 - **TLS mode**: whether a connection to an upstream service should use plain text, TLS, mutual TLS using certificates you specify, or mutual TLS using Istio-issued certificates.
 
-Explore applying a destination rule to alter the load balancer configuration.
+Let us explore applying a destination rule to alter the load balancer configuration.
 
-!!! question "Did you know?"
-
-    What is the default load balancing algorithm currently in play for calls to `httpbin`?
-
-    Visit the Istio configuration reference [here](https://istio.io/latest/docs/reference/config/networking/destination-rule/#LoadBalancerSettings-SimpleLB) to find out.
+Visit the Istio configuration reference [here](https://istio.io/latest/docs/reference/config/networking/destination-rule/#LoadBalancerSettings-SimpleLB) to find out what is the default load balancing algorithm.
 
 Study the contents of the file `destination-rule.yaml`:
 
