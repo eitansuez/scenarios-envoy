@@ -14,6 +14,10 @@
       {
         "title": "Deploy a sample application",
         "text": "application.md"
+      },
+      {
+        "title": "Ingress",
+        "text": "ingress.md"
       }
     ],
     "intro": {
@@ -31,7 +35,9 @@
         {"file": "install-manifest.yaml", "target": "/root", "chmod": "+x"},
         {"file": "web-frontend.yaml", "target": "/root", "chmod": "+x"},
         {"file": "customers.yaml", "target": "/root", "chmod": "+x"},
-        {"file": "sleep.yaml", "target": "/root", "chmod": "+x"}
+        {"file": "sleep.yaml", "target": "/root", "chmod": "+x"},
+        {"file": "gateway.yaml", "target": "/root", "chmod": "+x"},
+        {"file": "web-frontend-virtualservice.yaml", "target": "/root", "chmod": "+x"}
       ]
     }
   },
