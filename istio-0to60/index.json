@@ -10,6 +10,10 @@
       {
         "title": "Install Istio",
         "text": "install.md"
+      },
+      {
+        "title": "Deploy a sample application",
+        "text": "application.md"
       }
     ],
     "intro": {
@@ -24,7 +28,10 @@
     "assets": {
       "host01": [
         {"file": "wait-background.sh", "target": "/ks", "chmod": "+x"},
-        {"file": "install-manifest.yaml", "target": "/root", "chmod": "+x"}
+        {"file": "install-manifest.yaml", "target": "/root", "chmod": "+x"},
+        {"file": "web-frontend.yaml", "target": "/root", "chmod": "+x"},
+        {"file": "customers.yaml", "target": "/root", "chmod": "+x"},
+        {"file": "sleep.yaml", "target": "/root", "chmod": "+x"}
       ]
     }
   },

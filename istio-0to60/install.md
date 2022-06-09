@@ -64,3 +64,7 @@ Verify that Istio is installed in your cluster:
     ```
     k get svc -n istio-system
     ```{{exec}}
+
+## Next
+
+With Istio installed, we are ready to deploy an application to the mesh.
