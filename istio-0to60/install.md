@@ -48,7 +48,7 @@ _The contents of the file `install-manifest.yaml` represent tweaks to the defaul
 
 Verify that Istio is installed in your cluster:
 
-1. Re-run `istioctl version` and notice how the output differs from the previous run.
+1. Re-run `istioctl version`{{exec}} and notice how the output differs from the previous run.
 1. Note a new Kubernetes namespace `istio-system`, also known as the Istio _root namespace_:
 
     ```

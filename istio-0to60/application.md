@@ -46,11 +46,11 @@ In this lab we will use automatic injection, which involves labeling the namespa
 
     ```
     k apply -f customers.yaml
-    ```
+    ```{{exec}}
 
     ```
     k apply -f web-frontend.yaml
-    ```
+    ```{{exec}}
 
 Confirm that:
 
@@ -59,7 +59,7 @@ Confirm that:
 
     ```
     k get pod
-    ```
+    ```{{exec}}
 
 ## How did each pod end up with two containers?
 
@@ -90,13 +90,13 @@ The Istio distribution provides a sample app called `sleep` that will serve this
 
     ```
     SLEEP_POD=$(kubectl get pod -l app=sleep -ojsonpath='{.items[0].metadata.name}')
-    ```
+    ```{{exec}}
 
 1. Use the `kubectl exec` command to call the `customers` service.
 
     ```
     k exec $SLEEP_POD -it -- curl customers
-    ```
+    ```{{exec}}
 
     The console output should show a list of customers in JSON format.
 
@@ -104,7 +104,7 @@ The Istio distribution provides a sample app called `sleep` that will serve this
 
     ```
     kubectl exec $SLEEP_POD -it -- curl web-frontend | head
-    ```
+    ```{{exec}}
 
     The console output should show the start of an HTML page listing customers in an HTML table.
 
