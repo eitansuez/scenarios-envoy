@@ -1,0 +1,34 @@
+{
+  "title": "Istio 0 to 60",
+  "description": "An Istio workshop for the beginner (a work in progress)",
+  "details": {
+      "steps": [
+      {
+        "title": "Introduction",
+        "text": "intro.md"
+      },
+      {
+        "title": "Install Istio",
+        "text": "install.md"
+      }
+    ],
+    "intro": {
+      "text": "init/init.md",
+      "background": "init/background.sh",
+      "foreground": "init/foreground.sh"
+    },
+    "finish": {
+      "title": "Summary",
+      "text": "summary.md"
+    },
+    "assets": {
+      "host01": [
+        {"file": "wait-background.sh", "target": "/ks", "chmod": "+x"},
+        {"file": "install-manifest.yaml", "target": "/root", "chmod": "+x"}
+      ]
+    }
+  },
+  "backend": {
+    "imageid": "kubernetes-kubeadm-2nodes"
+  }
+}
