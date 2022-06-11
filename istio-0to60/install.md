@@ -20,16 +20,18 @@ Download the Istio distribution:
 curl -L https://istio.io/downloadIstio | TARGET_ARCH=x86_64 sh -
 ```{{exec}}
 
-Configure the Istio CLI (istioctl):
+Note the istio distribution folder `istio-1.14.0` in your home directory:
 
 ```
-export PATH=/root/istio-${ISTIO_VERSION}/bin:$PATH
+ls -lF
 ```{{exec}}
 
-For good measure, add the above PATH update to your `.bashrc` file:
+The Istio CLI, `istioctl` is located in the distribution's `bin` directory.
+
+Place `istioctl` in your `$PATH`:
 
 ```
-echo "export PATH=/root/istio-${ISTIO_VERSION}/bin:\$PATH" >> .bashrc
+cp istio-1.14.0/bin/istioctl /usr/local/bin
 ```{{exec}}
 
 Verify that the CLI is functioning:
@@ -38,33 +40,38 @@ Verify that the CLI is functioning:
 istioctl version
 ```{{exec}}
 
+Note how the output of the above command states in so many words that Istio is not yet installed in your Kubernetes cluster, but that the client version is 1.14.0.
+
+The file `install-manifest.yaml` is a configuration of Istio that tweaks the default configuration to accommodate the environment in which this lab is running.
+
 Install Istio onto your Kubernetes cluster:
 
 ```
-istioctl install -f install-manifest.yaml
+istioctl install -f install-manifest.yaml -y
 ```{{exec}}
 
-_The contents of the file `install-manifest.yaml` represent tweaks to the default profile configuration to accommodate the environment in which this lab is running._
+After installation is complete, re-run `istioctl version`{{exec}}.
 
-Verify that Istio is installed in your cluster:
+Note how the output now states that Istio is running in the control plane and the data plane.
 
-1. Re-run `istioctl version`{{exec}} and notice how the output differs from the previous run.
-1. Note a new Kubernetes namespace `istio-system`, also known as the Istio _root namespace_:
+List the namespaces in your Kubernetes cluster:
 
-    ```
-    k get ns
-    ```{{exec}}
+```
+k get ns
+```{{exec}}
 
-1. Review the deployments and services in the `istio-system` namespace
+Note the new Kubernetes namespace `istio-system`, also known as the Istio _root namespace_.
 
-    ```
-    k get deploy -n istio-system
-    ```{{exec}}
+Review the deployments and services in the `istio-system` namespace:
 
-    ```
-    k get svc -n istio-system
-    ```{{exec}}
+```
+k get deploy -n istio-system
+```{{exec}}
+
+```
+k get svc -n istio-system
+```{{exec}}
 
 ## Next
 
-With Istio installed, we are ready to deploy an application to the mesh.
+With Istio installed, we are ready to proceed to deploy an application to the mesh.
