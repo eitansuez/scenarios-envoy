@@ -18,7 +18,9 @@ k get svc -n istio-system
 
 In this lab environment, the load-balancer service does not have a corresponding public IP address.
 
-Instead, we can expose the ingress gateway service via a port on the host node:
+As a workaround, we will use the `kubectl port-forward` command to expose the ingress gateway service via a port on the host machine.
+
+We select the arbitrary port number 1234:
 
 ```
 kubectl port-forward -n istio-system --address 0.0.0.0 service/istio-ingressgateway 1234:80
@@ -77,7 +79,7 @@ Configuring ingress with Istio is accomplished in two parts:
     k get virtualservice
     ```{{exec}}
 
-    The output indicates that the virtual service named `web-frontend` is bound to the gateway, as well as any hostname that routes to the load balancer IP address.
+    The output indicates that the virtual service named `web-frontend` is bound to the gateway, as well as any hostname that routes to the ingress gateway.
 
 Finally, verify that you can now [access]({{TRAFFIC_HOST1_1234}}/) `web-frontend` from your web browser.
 
