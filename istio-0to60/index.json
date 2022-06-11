@@ -32,14 +32,14 @@
     "assets": {
       "host01": [
         {"file": "wait-background.sh", "target": "/ks", "chmod": "+x"},
-        {"file": "install-manifest.yaml", "target": "/root", "chmod": "+x"},
-        {"file": "web-frontend.yaml", "target": "/root", "chmod": "+x"},
-        {"file": "customers.yaml", "target": "/root", "chmod": "+x"},
-        {"file": "sleep.yaml", "target": "/root", "chmod": "+x"},
-        {"file": "gateway.yaml", "target": "/root", "chmod": "+x"},
-        {"file": "web-frontend-virtualservice.yaml", "target": "/root", "chmod": "+x"},
-        {"file": ".inputrc", "target": "/root/.inputrc"},
-        {"file": ".vimrc", "target": "/root/.vimrc"}
+        {"file": "install-manifest.yaml", "target": "/root"},
+        {"file": "web-frontend.yaml", "target": "/root"},
+        {"file": "customers.yaml", "target": "/root"},
+        {"file": "sleep.yaml", "target": "/root"},
+        {"file": "gateway.yaml", "target": "/root"},
+        {"file": "web-frontend-virtualservice.yaml", "target": "/root"},
+        {"file": ".inputrc", "target": "/root"},
+        {"file": ".vimrc", "target": "/root"}
       ]
     }
   },
