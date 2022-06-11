@@ -37,7 +37,10 @@
         {"file": "customers.yaml", "target": "/root", "chmod": "+x"},
         {"file": "sleep.yaml", "target": "/root", "chmod": "+x"},
         {"file": "gateway.yaml", "target": "/root", "chmod": "+x"},
-        {"file": "web-frontend-virtualservice.yaml", "target": "/root", "chmod": "+x"}
+        {"file": "web-frontend-virtualservice.yaml", "target": "/root", "chmod": "+x"},
+        {"file": ".inputrc", "target": "/root"},
+        {"file": ".vimrc", "target": "/root"}
+
       ]
     }
   },

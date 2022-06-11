@@ -13,3 +13,5 @@ kubectl taint nodes controlplane node-role.kubernetes.io/control-plane:NoSchedul
 
 # mark init finished
 touch /ks/.initfinished
+
+echo "\n\nset -o vi\n\n" >> ~/.bashrc
