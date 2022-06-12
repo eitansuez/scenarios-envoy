@@ -22,6 +22,10 @@
       {
         "title": "Observability",
         "text": "observability.md"
+      },
+      {
+        "title": "Security",
+        "text": "security.md"
       }
     ],
     "intro": {
@@ -43,7 +47,9 @@
         {"file": "gateway.yaml", "target": "/root"},
         {"file": "web-frontend-virtualservice.yaml", "target": "/root"},
         {"file": ".inputrc", "target": "/root"},
-        {"file": ".vimrc", "target": "/root"}
+        {"file": ".vimrc", "target": "/root"},
+        {"file": "mtls-strict.yaml", "target": "/root"},
+        {"file": "authz-policy-customers.yaml", "target": "/root"}
       ]
     }
   },
