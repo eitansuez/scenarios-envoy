@@ -43,14 +43,6 @@ These addons are located in the `samples/addons/` folder of the distribution.
     k get pod -n istio-system
     ```{{exec}}
 
-The `istioctl` CLI provides convenience commands for accessing the web UIs for each dashboard.
-
-Take a moment to review the help information for the `istioctl dashboard` command:
-
-```
-istioctl dashboard --help
-```{{exec}}
-
 ## Generate a load
 
 In order to have something to observe, we need to generate a load on our system.
@@ -74,8 +66,11 @@ siege --help
 Run the following command to generate a mild load against the application.
 
 ```
-CLUSTER_IP=$(kubectl get svc -n istio-system istio-ingressgateway -ojsonpath='{.status.loadBalancer.ingress[0].ip}')
-siege --delay=3 --concurrent=3 --time=20M http://$CLUSTER_IP/
+INGRESS_CLUSTER_IP=$(kubectl get svc -n istio-system istio-ingressgateway -ojsonpath='{.spec.clusterIP}')
+```{{exec}}
+
+```
+siege --delay=3 --concurrent=3 --time=20M http://$INGRESS_CLUSTER_IP/
 ```{{exec}}
 
 ### Note
@@ -83,21 +78,30 @@ siege --delay=3 --concurrent=3 --time=20M http://$CLUSTER_IP/
 The `siege` command stays in the foreground while it runs.
 It may be simplest to leave it running, and open a separate terminal in your cloud shell environment.
 
-## Kiali
+## About the dashboards
 
-One normally launches the Kiali dashboard with the `istioctl dashboard` command:
+The `istioctl` CLI provides convenience commands for accessing the web UIs for each dashboard.
+
+Take a moment to review the help information for the `istioctl dashboard` command:
 
 ```
-istioctl dashboard kiali
-```{{}}
+istioctl dashboard --help
+```{{exec}}
 
-In this environment, we use the `kubectl port-forward` command explicitly, like so:
+One normally launches dashboards with the above command.
+
+In this environment however, you will use the `kubectl port-forward` command explicitly.
+
+
+## Kiali
+
+Expose the Kiali dashboard with the following command:
 
 ```
 k port-forward -n istio-system --address 0.0.0.0 service/kiali 20001:20001
 ```{{exec}}
 
-We can then [access kila via port 20001]({{TRAFFIC_HOST1_1234}}/).
+[Access kiali via port 20001]({{TRAFFIC_HOST1_20001}}/).
 
 ### Note
 
@@ -129,7 +133,7 @@ We will revisit Kiali in a later lab to visualize traffic shifting such as when 
 
 ### Kiali Cleanup
 
-Close the Kiali dashboard.  Interrupt the `istioctl dashboard kiali` command by pressing ++ctrl+c++.
+Close the Kiali dashboard.  Interrupt the `kubectl port-forward` command by pressing ++ctrl+c++.
 
 
 ## Zipkin
@@ -137,8 +141,10 @@ Close the Kiali dashboard.  Interrupt the `istioctl dashboard kiali` command by 
 Launch the Zipkin dashboard:
 
 ```
-istioctl dashboard zipkin
+k port-forward -n istio-system --address 0.0.0.0 service/zipkin 9411:9411
 ```
+
+[Access Zipkin via port 9411]({{TRAFFIC_HOST1_9411}}/).
 
 The Zipkin dashboard displays.
 
@@ -155,7 +161,7 @@ Distributed tracing also helps us make sense of the flow of requests in a micros
 
 ### Zipkin Cleanup
 
-Close the Zipkin dashboard.  Interrupt the `istioctl dashboard zipkin` command with ++ctrl+c++.
+Close the Zipkin dashboard.  Interrupt the `kubectl port-forward` command with ++ctrl+c++.
 
 
 ## Prometheus
@@ -185,8 +191,10 @@ With Istio, this is done automatically by the Envoy sidecar.
 1. Start the prometheus dashboard
 
     ```
-    istioctl dashboard prometheus
+    k port-forward -n istio-system --address 0.0.0.0 service/prometheus 9090:9090
     ```
+
+    [Access Prometheus via port 9090]({{TRAFFIC_HOST1_9090}}/).
 
 1. In the search field enter the metric named `istio_requests_total`, and click the _Execute_ button (on the right).
 
@@ -210,15 +218,17 @@ There's much more to the Prometheus query language ([this](https://prometheus.io
 
 Grafana consumes these metrics to produce graphs on our behalf.
 
-- Close the Prometheus dashboard and terminate the corresponding `istioctl dashboard` command.
+- Close the Prometheus dashboard and terminate the corresponding `kubectl port-forward` command.
 
 ## Grafana
 
 1. Launch the Grafana dashboard
 
     ```
-    istioctl dashboard grafana
+    k port-forward -n istio-system --address 0.0.0.0 service/grafana 3000:3000
     ```
+
+    [Access Grafana via port 3000]({{TRAFFIC_HOST1_3000}}/).
 
 1. From the sidebar, select _Dashboards_ --> _Manage_
 1. Click on the folder named _Istio_ to reveal pre-designed Istio-specific Grafana dashboards
@@ -230,8 +240,8 @@ Feel free to further explore these dashboards.
 
 ## Cleanup
 
-1. Terminate the `istioctl dashboard` command (++ctrl+c++)
-1. Likewise, terminate the `siege` command
+1. Terminate the `kubectl port-forward` command (++ctrl+c++)
+1. Likewise terminate the `siege` command
 
 ## Next
 
