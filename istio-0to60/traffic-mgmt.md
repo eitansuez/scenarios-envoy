@@ -119,7 +119,7 @@ Expose the ingress gateway once more:
 k port-forward -n istio-system --address 0.0.0.0 service/istio-ingressgateway 1234:80
 ```{{exec}}
 
-[Access the gateway via port 1234]({{TRAFFIC_HOST1_1234}}/).
+[Access the gateway]({{TRAFFIC_HOST1_1234}}/).
 
 We can tell v1 and v2 apart in that v2 displays not only customer names but also their city (in two columns).
 
@@ -165,7 +165,7 @@ Expose Grafana:
 k port-forward -n istio-system --address 0.0.0.0 service/grafana 3000:3000
 ```{{exec}}
 
-[Access Grafana via port 3000]({{TRAFFIC_HOST1_3000}}/).
+[Access Grafana]({{TRAFFIC_HOST1_3000}}/).
 
 
 In Grafana, visit the Istio Workload Dashboard and specifically look at the customers v2 workload.
