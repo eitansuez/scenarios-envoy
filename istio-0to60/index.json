@@ -26,6 +26,10 @@
       {
         "title": "Security",
         "text": "security.md"
+      },
+      {
+        "title": "Traffic shifting",
+        "text": "traffic-mgmt.md"
       }
     ],
     "intro": {
@@ -49,7 +53,13 @@
         {"file": ".inputrc", "target": "/root"},
         {"file": ".vimrc", "target": "/root"},
         {"file": "mtls-strict.yaml", "target": "/root"},
-        {"file": "authz-policy-customers.yaml", "target": "/root"}
+        {"file": "authz-policy-customers.yaml", "target": "/root"},
+        {"file": "customers-destinationrule.yaml", "target": "/root"},
+        {"file": "customers-virtualservice.yaml", "target": "/root"},
+        {"file": "customers-v2.yaml", "target": "/root"},
+        {"file": "customers-v2-debug.yaml", "target": "/root"},
+        {"file": "customres-v2-canary.yaml", "target": "/root"},
+        {"file": "customers-virtualservice-final.yaml", "target": "/root"}
       ]
     }
   },
