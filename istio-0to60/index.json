@@ -18,6 +18,10 @@
       {
         "title": "Ingress",
         "text": "ingress.md"
+      },
+      {
+        "title": "Observability",
+        "text": "observability.md"
       }
     ],
     "intro": {
