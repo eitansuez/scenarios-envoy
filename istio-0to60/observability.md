@@ -142,7 +142,7 @@ Launch the Zipkin dashboard:
 
 ```
 k port-forward -n istio-system --address 0.0.0.0 service/zipkin 9411:9411
-```
+```{{exec}}
 
 [Access Zipkin via port 9411]({{TRAFFIC_HOST1_9411}}/).
 
@@ -176,13 +176,13 @@ With Istio, this is done automatically by the Envoy sidecar.
 
     ```
     CUSTOMERS_POD=$(kubectl get pod -l app=customers -ojsonpath='{.items[0].metadata.name}')
-    ```
+    ```{{exec}}
 
 1. Run the following command:
 
     ```
-    kubectl exec $CUSTOMERS_POD -it -- curl localhost:15090/stats/prometheus  | grep istio_requests
-    ```
+    k exec $CUSTOMERS_POD -it -- curl localhost:15090/stats/prometheus  | grep istio_requests
+    ```{{exec}}
 
     The list of metrics returned by the endpoint is rather lengthy, so we just peek at "istio_requests" metric.  The full response contains many more metrics.
 
@@ -192,7 +192,7 @@ With Istio, this is done automatically by the Envoy sidecar.
 
     ```
     k port-forward -n istio-system --address 0.0.0.0 service/prometheus 9090:9090
-    ```
+    ```{{exec}}
 
     [Access Prometheus via port 9090]({{TRAFFIC_HOST1_9090}}/).
 
@@ -204,13 +204,13 @@ With Istio, this is done automatically by the Envoy sidecar.
 
 1. As an example of Prometheus' dimensional metrics capability, we can ask for total requests having a response code of 200:
 
-    ```text
+    ```
     istio_requests_total{response_code="200"}
     ```
 
 1. With respect to requests, it's more interesting to look at the rate of incoming requests over a time window.  Try:
 
-    ```text
+    ```
     rate(istio_requests_total[5m])
     ```
 
@@ -226,7 +226,7 @@ Grafana consumes these metrics to produce graphs on our behalf.
 
     ```
     k port-forward -n istio-system --address 0.0.0.0 service/grafana 3000:3000
-    ```
+    ```{{exec}}
 
     [Access Grafana via port 3000]({{TRAFFIC_HOST1_3000}}/).
 
