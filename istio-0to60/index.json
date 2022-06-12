@@ -1,6 +1,6 @@
 {
   "title": "Istio 0 to 60",
-  "description": "An Istio workshop for the beginner (a work in progress)",
+  "description": "An Istio workshop for the beginner",
   "details": {
       "steps": [
       {
@@ -30,7 +30,7 @@
       "foreground": "init/foreground.sh"
     },
     "finish": {
-      "title": "Summary",
+      "title": "Congratulations",
       "text": "summary.md"
     },
     "assets": {
