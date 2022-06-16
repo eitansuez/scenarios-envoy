@@ -86,6 +86,12 @@ The Istio distribution provides a sample app called `sleep` that will serve this
     k apply -f sleep.yaml
     ```{{exec}}
 
+1.  Confirm that the sleep pod is running before proceeding.
+
+    ```
+    k get pod
+    ```{{exec}}
+
 1. Capture the name of the sleep pod to an environment variable
 
     ```
