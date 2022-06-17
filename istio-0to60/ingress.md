@@ -16,19 +16,11 @@ A corresponding _LoadBalancer_ type service was also created:
 k get svc -n istio-system
 ```{{exec}}
 
-In this lab environment, the load-balancer service does not have a corresponding public IP address.
+In this lab environment, the _LoadBalancer_ service does not have a corresponding public IP address.
 
-As a workaround, we will use the `kubectl port-forward` command to expose the ingress gateway service via a port on the host machine.
+As a workaround, in the following instructions, we will use the `kubectl port-forward` command to expose the ingress gateway service via a port on the host machine.
 
-We select the arbitrary port number 1234:
-
-```
-kubectl port-forward -n istio-system --address 0.0.0.0 service/istio-ingressgateway 1234:80
-```{{exec}}
-
-We can then [access the gateway via port 1234]({{TRAFFIC_HOST1_1234}}/).
-
-Currently, the gateway is not configured to allow access so you should get a "connection refused" response.
+Let us begin and configure the ingress gateway.
 
 ## Configuring ingress
 
@@ -54,6 +46,14 @@ Configuring ingress with Istio is accomplished in two parts:
     ```
     k apply -f gateway.yaml
     ```{{exec}}
+
+1. Expose the ingress gateway, using the arbitrary host port number 1234:
+
+    ```
+    k port-forward -n istio-system --address 0.0.0.0 service/istio-ingressgateway 1234:80
+    ```{{exec}}
+
+1. [Access the gateway via port 1234]({{TRAFFIC_HOST1_1234}}/).
 
 1. Attempt once more to [access the gateway via port 1234]({{TRAFFIC_HOST1_1234}}/).  It should return a 404 (not found) response.
 
