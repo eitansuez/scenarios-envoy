@@ -57,6 +57,8 @@ Configuring ingress with Istio is accomplished in two parts:
 
 ### Create a VirtualService resource
 
+The `port-forward` command is blocking.  Allow it to continue to run, and open a second tab in which to perform these remaining instructions: 
+
 1. Review the following VirtualService specification.
 
     ```
