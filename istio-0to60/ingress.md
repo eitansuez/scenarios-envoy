@@ -53,9 +53,7 @@ Configuring ingress with Istio is accomplished in two parts:
     k port-forward -n istio-system --address 0.0.0.0 service/istio-ingressgateway 1234:80
     ```{{exec}}
 
-1. [Access the gateway via port 1234]({{TRAFFIC_HOST1_1234}}/).
-
-1. Attempt once more to [access the gateway via port 1234]({{TRAFFIC_HOST1_1234}}/).  It should return a 404 (not found) response.
+1. Attempt to [access the gateway via port 1234]({{TRAFFIC_HOST1_1234}}/).  It should return a 404 (not found) response.
 
 ### Create a VirtualService resource
 
