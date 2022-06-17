@@ -242,6 +242,7 @@ Feel free to further explore these dashboards.
 
 1. Terminate the `kubectl port-forward` command (++ctrl+c++)
 1. Likewise terminate the `siege` command
+1. Navigate back to the home directory: `cd ~`
 
 ## Next
 
