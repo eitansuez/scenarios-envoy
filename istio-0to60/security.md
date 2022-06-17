@@ -135,7 +135,7 @@ Here is a command which can help you find the name of the service account associ
 k get pod -n istio-system -l app=istio-ingressgateway -o yaml | grep serviceAccountName
 ```{{exec}}
 
-Use this service account name together with the namespace that the ingress gateway is running in to specify the value for the `principals` field.
+Use this service account name together with the namespace that the ingress gateway is running in, to specify the value for the `principals` field.
 
 
 ### Test it
@@ -144,6 +144,19 @@ Don't forget to verify that the policy is enforced.
 
 - Call both services again from the sleep pod and ensure communication is no longer allowed.
 - The console output should contain the message _RBAC: access denied_.
+
+Conversely, verify that the Ingress Gateway can still call the `web-frontend` service:
+
+```
+INGRESS_CLUSTER_IP=$(kubectl get svc -n istio-system istio-ingressgateway -ojsonpath='{.spec.clusterIP}')
+```{{exec}}
+
+Then:
+
+```
+k exec $SLEEP_POD -it -- curl -I ${INGRESS_CLUSTER_IP}
+```{{exec}}
+
 
 ## Next
 
