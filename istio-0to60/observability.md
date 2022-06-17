@@ -107,7 +107,7 @@ k port-forward -n istio-system --address 0.0.0.0 service/kiali 20001:20001
 
 The `kubectl port-forward` command also blocks.
 Leave it running until you're finished using the dashboard, at which time 
-pressing ++ctrl+c++ can interrupt the process and put you back at the terminal prompt.
+pressing _Ctrl+C_ can interrupt the process and put you back at the terminal prompt.
 
 The Kiali dashboard displays.
 
@@ -133,7 +133,7 @@ We will revisit Kiali in a later lab to visualize traffic shifting such as when 
 
 ### Kiali Cleanup
 
-Close the Kiali dashboard.  Interrupt the `kubectl port-forward` command by pressing ++ctrl+c++.
+Close the Kiali dashboard.  Interrupt the `kubectl port-forward` command by pressing _Ctrl+C_.
 
 
 ## Zipkin
@@ -161,7 +161,7 @@ Distributed tracing also helps us make sense of the flow of requests in a micros
 
 ### Zipkin Cleanup
 
-Close the Zipkin dashboard.  Interrupt the `kubectl port-forward` command with ++ctrl+c++.
+Close the Zipkin dashboard.  Interrupt the `kubectl port-forward` command with _Ctrl+C_.
 
 
 ## Prometheus
@@ -240,7 +240,7 @@ Feel free to further explore these dashboards.
 
 ## Cleanup
 
-1. Terminate the `kubectl port-forward` command (++ctrl+c++)
+1. Terminate the `kubectl port-forward` command (_Ctrl+C_)
 1. Likewise terminate the `siege` command
 1. Navigate back to the home directory: `cd ~`
 
