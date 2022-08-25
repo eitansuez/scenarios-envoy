@@ -42,6 +42,20 @@ istioctl version
 
 Note how the output of the above command states in so many words that Istio is not yet installed in your Kubernetes cluster, but that the client version is 1.14.3.
 
+### Pre-check
+
+The `istioctl` CLI provides a convenient `precheck` command that can be used to "_inspect a Kubernetes cluster for Istio install and upgrade requirements._"
+
+To verify whether it is safe to install Istio on your Kubernetes cluster, run:
+
+```
+istioctl x precheck
+```{{exec}}
+
+Make sure that the output of the above command returns a green "checkmark" stating that no issues were found when checking the cluster.
+
+### Install
+
 The file `install-manifest.yaml` is a configuration of Istio that tweaks the default configuration to accommodate the environment in which this lab is running.
 
 Install Istio onto your Kubernetes cluster:
@@ -50,9 +64,23 @@ Install Istio onto your Kubernetes cluster:
 istioctl install -f install-manifest.yaml -y
 ```{{exec}}
 
-After installation is complete, re-run `istioctl version`{{exec}}.
+## Verify that Istio is installed
 
-Note how the output now states that Istio is running in the control plane and the data plane.
+Post-installation, Istio provides the command `verify-install`: it runs a series of checks to ensure that the installation was successful and complete.
+
+Go ahead and run it:
+
+```
+istioctl verify-install
+```{{exec}}
+
+Inspect the output and confirm that the it states that "_✔ Istio is installed and verified successfully._"
+
+Let's keep probing.
+
+Re-run `istioctl version`{{exec}}.
+
+Note how the output now states that Istio is running both in the control plane _and_ the data plane.
 
 List the namespaces in your Kubernetes cluster:
 
