@@ -100,7 +100,7 @@ We wish to proceed with caution.  Before customers can see version 2, we want to
 Review this proposed updated routing specification.
 
 ```
-cat customers-v2-debug.yaml
+cat customers-vs-debug.yaml
 ```{{exec}}
 
 We are telling Istio to check an HTTP header:  if the `user-agent` is set to `debug`, route to v2, otherwise route to v1.
@@ -108,7 +108,7 @@ We are telling Istio to check an HTTP header:  if the `user-agent` is set to `de
 Open a new terminal and apply the above resource to the cluster; it will overwrite the currently defined virtualservice as both yamls use the same resource name.
 
 ```
-k apply -f customers-v2-debug.yaml
+k apply -f customers-vs-debug.yaml
 ```{{exec}}
 
 ### Test it
@@ -144,7 +144,7 @@ Well, v2 looks good; we decide to expose the new version to the public, but we'r
 Start by siphoning 10% of traffic over to v2.
 
 ```
-cat customers-v2-canary.yaml
+cat customers-vs-canary.yaml
 ```{{exec}}
 
 Above, note the `weight` field specifying 10 percent of traffic to v2.

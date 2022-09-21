@@ -57,8 +57,8 @@
         {"file": "customers-destinationrule.yaml", "target": "/root"},
         {"file": "customers-virtualservice.yaml", "target": "/root"},
         {"file": "customers-v2.yaml", "target": "/root"},
-        {"file": "customers-v2-debug.yaml", "target": "/root"},
-        {"file": "customers-v2-canary.yaml", "target": "/root"},
+        {"file": "customers-vs-debug.yaml", "target": "/root"},
+        {"file": "customers-vs-canary.yaml", "target": "/root"},
         {"file": "customers-virtualservice-final.yaml", "target": "/root"}
       ]
     }
