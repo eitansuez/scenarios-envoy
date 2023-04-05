@@ -8,10 +8,10 @@ k get ns
 
 ## Install Istio
 
-You will be using Istio version 1.17.1:
+You will be using Istio version 1.17.2:
 
 ```
-export ISTIO_VERSION=1.17.1
+export ISTIO_VERSION=1.17.2
 ```{{exec}}
 
 Download the Istio distribution:
@@ -20,7 +20,7 @@ Download the Istio distribution:
 curl -L https://istio.io/downloadIstio | TARGET_ARCH=x86_64 sh -
 ```{{exec}}
 
-Note the istio distribution folder `istio-1.17.1` in your home directory:
+Note the istio distribution folder `istio-1.17.2` in your home directory:
 
 ```
 ls -lF
@@ -31,7 +31,7 @@ The Istio CLI, `istioctl` is located in the distribution's `bin` directory.
 Place `istioctl` in your `$PATH`:
 
 ```
-cp istio-1.17.1/bin/istioctl /usr/local/bin
+cp istio-1.17.2/bin/istioctl /usr/local/bin
 ```{{exec}}
 
 Verify that the CLI is functioning:
@@ -40,7 +40,7 @@ Verify that the CLI is functioning:
 istioctl version
 ```{{exec}}
 
-Note how the output of the above command states in so many words that Istio is not yet installed in your Kubernetes cluster, but that the client version is 1.17.1.
+Note how the output of the above command states in so many words that Istio is not yet installed in your Kubernetes cluster, but that the client version is 1.17.2.
 
 ### Pre-check
 
