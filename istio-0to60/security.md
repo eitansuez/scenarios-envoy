@@ -34,7 +34,7 @@ We can test whether a mesh workload, such as the customers service, will allow a
 1. Call the customer service from that pod:
 
     ```
-    kubectl exec -n other-ns deploy/sleep -- curl customers.default
+    kubectl exec -n other-ns deploy/sleep -- curl -s customers.default | jq
     ```{{exec}}
 
 The output should look like a list of customers in JSON format.
@@ -46,13 +46,19 @@ This is called _permissive mode_ and is specifically designed to allow services 
 
 Istio provides the `PeerAuthentication` custom resource to define peer authentication policy.
 
-1. Apply the following peer authentication policy.
+1. Review the following peer authentication policy:
 
     ```
     cat mtls-strict.yaml
     ```{{exec}}
 
     Strict mTls can be enabled globally by setting the namespace to the name of the Istio root namespace, which by default is `istio-system`
+
+1. Apply the policy:
+
+    ```
+    k apply -f mtls-strict.yaml
+    ```{{exec}}
 
 1. Verify that the peer authentication has been applied.
 
@@ -78,13 +84,13 @@ At the moment, any container can, for example, call the customers service or the
 1. Call the `customers` service.
 
     ```
-    k exec deploy/sleep -- curl customers
+    k exec deploy/sleep -- curl -s customers
     ```{{exec}}
 
 1. Call the `web-frontend` service.
 
     ```
-    k exec deploy/sleep -- curl web-frontend | head
+    k exec deploy/sleep -- curl -s web-frontend | head
     ```{{exec}}
 
 Both calls succeed.
@@ -144,7 +150,7 @@ INGRESS_CLUSTER_IP=$(kubectl get svc -n istio-system istio-ingressgateway -ojson
 Then:
 
 ```
-k exec deploy/sleep -- curl -I ${INGRESS_CLUSTER_IP}
+k exec deploy/sleep -- curl -s -I ${INGRESS_CLUSTER_IP}
 ```{{exec}}
 
 

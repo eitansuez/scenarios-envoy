@@ -95,7 +95,7 @@ The Istio distribution provides a sample app called `sleep` that will serve this
 1. Use the `kubectl exec` command to call the `customers` service.
 
     ```
-    k exec deploy/sleep -- curl customers
+    k exec deploy/sleep -- curl -s customers | jq
     ```{{exec}}
 
     The console output should show a list of customers in JSON format.
@@ -103,7 +103,7 @@ The Istio distribution provides a sample app called `sleep` that will serve this
 1. Call the `web-frontend` service
 
     ```
-    kubectl exec deploy/sleep -- curl web-frontend | head
+    kubectl exec deploy/sleep -- curl -s web-frontend | head
     ```{{exec}}
 
     The console output should show the start of an HTML page listing customers in an HTML table.
