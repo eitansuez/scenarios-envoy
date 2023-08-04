@@ -172,16 +172,10 @@ With Istio, this is done automatically by the Envoy sidecar.
 
 ### Observe how Envoy exposes a Prometheus scrape endpoint
 
-1. Capture the customers pod name to a variable.
-
-    ```
-    CUSTOMERS_POD=$(kubectl get pod -l app=customers -ojsonpath='{.items[0].metadata.name}')
-    ```{{exec}}
-
 1. Run the following command:
 
     ```
-    k exec $CUSTOMERS_POD -it -- curl localhost:15090/stats/prometheus  | grep istio_requests
+    k exec svc/customers -- curl localhost:15090/stats/prometheus  | grep istio_requests
     ```{{exec}}
 
     The list of metrics returned by the endpoint is rather lengthy, so we just peek at "istio_requests" metric.  The full response contains many more metrics.

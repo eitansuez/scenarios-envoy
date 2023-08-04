@@ -16,35 +16,31 @@ We can test whether a mesh workload, such as the customers service, will allow a
 1. Create a separate namespace that is not configured with automatic injection.
 
     ```
-    k create ns otherns
+    k create ns other-ns
     ```{{exec}}
 
 1. Deploy `sleep` to that namespace
 
     ```
-    k apply -f sleep.yaml -n otherns
+    k apply -f sleep.yaml -n other-ns
     ```{{exec}}
 
 1. Verify that the sleep pod has no sidecars:
 
     ```
-    k get pod -n otherns
+    k get pod -n other-ns
     ```{{exec}}
 
 1. Call the customer service from that pod:
 
     ```
-    SLEEP_POD=$(kubectl get pod -l app=sleep -n otherns -ojsonpath='{.items[0].metadata.name}')
-    ```{{exec}}
-    
-    ```
-    kubectl exec -n otherns $SLEEP_POD -it -- curl customers.default
+    kubectl exec -n other-ns deploy/sleep -- curl customers.default
     ```{{exec}}
 
 The output should look like a list of customers in JSON format.
 
 We conclude that Istio is configured by default to allow plain-text request.
-This is called _permissive mode_ and is specifically designed to allow services that have not yet fully onboarded onto the mesh to participate.
+This is called _permissive mode_ and is specifically designed to allow services that have not yet fully on-boarded onto the mesh to participate.
 
 ### Enable strict mode
 
@@ -56,7 +52,7 @@ Istio provides the `PeerAuthentication` custom resource to define peer authentic
     cat mtls-strict.yaml
     ```{{exec}}
 
-    Strict mtls can be enabled globally by setting the namespace to the name of the Istio root namespace, which by default is `istio-system`
+    Strict mTls can be enabled globally by setting the namespace to the name of the Istio root namespace, which by default is `istio-system`
 
 1. Verify that the peer authentication has been applied.
 
@@ -67,7 +63,7 @@ Istio provides the `PeerAuthentication` custom resource to define peer authentic
 ### Verify that plain-text requests are no longer permitted
 
 ```
-k exec -n otherns $SLEEP_POD -it -- curl customers.default
+k exec -n other-ns deploy/sleep -- curl customers.default
 ```{{exec}}
 
 The console output should indicate that the _connection was reset by peer_.
@@ -79,22 +75,16 @@ Another important layer of security is to define an authorization policy, in whi
 
 At the moment, any container can, for example, call the customers service or the web-frontend service.
 
-1. Capture the name of the sleep pod running in the default namespace
-
-    ```
-    SLEEP_POD=$(kubectl get pod -l app=sleep -ojsonpath='{.items[0].metadata.name}')
-    ```{{exec}}
-
 1. Call the `customers` service.
 
     ```
-    k exec $SLEEP_POD -it -- curl customers
+    k exec deploy/sleep -- curl customers
     ```{{exec}}
 
 1. Call the `web-frontend` service.
 
     ```
-    k exec $SLEEP_POD -it -- curl web-frontend | head
+    k exec deploy/sleep -- curl web-frontend | head
     ```{{exec}}
 
 Both calls succeed.
@@ -109,7 +99,7 @@ cat authz-policy-customers.yaml
 
 - The `selector` section specifies that the policy applies to the `customers` service.
 - Note how the rules have a "from: source: " section indicating who is allowed in.
-- The nomenclature for the value of the `principals` field comes from the [spiffe](https://spiffe.io/docs/latest/spiffe-about/overview/) standard.  Note how it captures the service account name and namespace associated with the `web-frontend` service.  This identify is associated with the x.509 certificate used by each service when making secure mtls calls to one another.
+- The nomenclature for the value of the `principals` field comes from the [spiffe](https://spiffe.io/docs/latest/spiffe-about/overview/) standard.  Note how it captures the service account name and namespace associated with the `web-frontend` service.  This identify is associated with the x.509 certificate used by each service when making secure mTls calls to one another.
 
 Tasks:
 
@@ -154,7 +144,7 @@ INGRESS_CLUSTER_IP=$(kubectl get svc -n istio-system istio-ingressgateway -ojson
 Then:
 
 ```
-k exec $SLEEP_POD -it -- curl -I ${INGRESS_CLUSTER_IP}
+k exec deploy/sleep -- curl -I ${INGRESS_CLUSTER_IP}
 ```{{exec}}
 
 
