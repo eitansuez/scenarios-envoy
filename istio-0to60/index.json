@@ -52,6 +52,7 @@
         {"file": "web-frontend-virtualservice.yaml", "target": "/root"},
         {"file": ".inputrc", "target": "/root"},
         {"file": ".vimrc", "target": "/root"},
+        {"file": ".tmux.conf", "target": "/root"},
         {"file": "mtls-strict.yaml", "target": "/root"},
         {"file": "authz-policy-customers.yaml", "target": "/root"},
         {"file": "customers-destinationrule.yaml", "target": "/root"},
