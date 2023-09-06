@@ -112,6 +112,22 @@ Tasks:
 - [ ] Apply the policy to your cluster.
 - [ ] Verify that you are no longer able to reach the `customers` pod from the `sleep` pod
 
+### Inspecting a workload certificate
+
+Capture the certificate returned by the `customers` workload:
+
+```
+kubectl exec deploy/sleep -c istio-proxy -- openssl s_client -showcerts -connect customers:80 > cert.txt
+```{{exec}}
+
+Inspect the certificate:
+
+```
+openssl x509 -in cert.txt -text -noout
+```{{exec}}
+
+The certificate's _Subject Alternative Name_ field contains the spiffe URI.
+
 ### Challenge
 
 Can you come up with a similar authorization policy for `web-frontend`?
