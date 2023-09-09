@@ -75,6 +75,23 @@ k exec -n other-ns deploy/sleep -- curl customers.default
 The console output should indicate that the _connection was reset by peer_.
 
 
+### Inspecting a workload certificate
+
+Capture the certificate returned by the `customers` workload:
+
+```
+kubectl exec deploy/sleep -c istio-proxy -- openssl s_client -showcerts -connect customers:80 > cert.txt
+```{{exec}}
+
+Edit `cert.txt` so that it contains only the certificate chain, then inspect the certificate with:
+
+```
+openssl x509 -in cert.txt -text -noout
+```{{exec}}
+
+The certificate's _Subject Alternative Name_ field contains the spiffe URI.
+
+
 ## Security in depth
 
 Another important layer of security is to define an authorization policy, in which we allow only specific services to communicate with other services.
@@ -112,21 +129,6 @@ Tasks:
 - [ ] Apply the policy to your cluster.
 - [ ] Verify that you are no longer able to reach the `customers` pod from the `sleep` pod
 
-### Inspecting a workload certificate
-
-Capture the certificate returned by the `customers` workload:
-
-```
-kubectl exec deploy/sleep -c istio-proxy -- openssl s_client -showcerts -connect customers:80 > cert.txt
-```{{exec}}
-
-Edit `cert.txt` so that it contains only the certificate chain, then inspect the certificate with:
-
-```
-openssl x509 -in cert.txt -text -noout
-```{{exec}}
-
-The certificate's _Subject Alternative Name_ field contains the spiffe URI.
 
 ### Challenge
 
