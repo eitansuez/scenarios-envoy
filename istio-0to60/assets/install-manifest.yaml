@@ -29,6 +29,7 @@ spec:
             memory: 0Mi # CHANGED
 
     pilot:
+      traceSampling: 10
       autoscaleEnabled: false
 
     gateways:
