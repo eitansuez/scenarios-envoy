@@ -175,7 +175,7 @@ With Istio, this is done automatically by the Envoy sidecar.
 1. Run the following command:
 
     ```
-    k exec svc/customers -c istio-proxy -- curl localhost:15090/stats/prometheus  | grep istio_requests
+    k exec svc/customers -c istio-proxy -- curl localhost:15020/stats/prometheus  | grep istio_requests
     ```{{exec}}
 
     The list of metrics returned by the endpoint is rather lengthy, so we just peek at "istio_requests" metric.  The full response contains many more metrics.
