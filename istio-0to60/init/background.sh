@@ -17,5 +17,6 @@ touch /ks/.initfinished
 cat << EOF >> ~/.bashrc
 
 set -o vi
+source <(istioctl completion bash)
 
 EOF
