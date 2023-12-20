@@ -24,6 +24,6 @@ We encourage you to dig deeper into the [Istio docs](https://istio.io/latest/doc
 
 You might also be interested in the free courses offered at the [Tetrate Academy](https://academy.tetrate.io/), including _Istio Fundamentals_, and _Envoy Fundamentals_.
 
-Finally, if you're interested in certification, check out the [Istio Certified Administrator](https://academy.tetrate.io/courses/certified-istio-administrator) exam.
+Finally, if you're interested in certification, check out the [Istio Certified Associate](https://training.linuxfoundation.org/certification/istio-certified-associate-ica/) exam.
 
 Thanks!
