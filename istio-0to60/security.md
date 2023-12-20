@@ -83,7 +83,7 @@ Capture the certificate returned by the `customers` workload:
 kubectl exec deploy/sleep -c istio-proxy -- openssl s_client -showcerts -connect customers:80 > cert.txt
 ```{{exec}}
 
-Edit `cert.txt` so that it contains only the certificate chain, then inspect the certificate with:
+Inspect the certificate:
 
 ```
 openssl x509 -in cert.txt -text -noout
