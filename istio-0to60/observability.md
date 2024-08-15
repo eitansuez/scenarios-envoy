@@ -16,7 +16,7 @@ These addons are located in the `samples/addons/` folder of the distribution.
 1. Navigate to the addons directory
 
     ```
-    cd ~/istio-1.21.1/samples/addons
+    cd ~/istio-1.23.0/samples/addons
     ```{{exec}}
 
 1. Deploy each addon:
