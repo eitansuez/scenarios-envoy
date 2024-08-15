@@ -40,11 +40,11 @@ These addons are located in the `samples/addons/` folder of the distribution.
 1. Configure zipkin as the tracing provider by applying the following Telemetry resource:
 
     ```
-    cat telemetry.yaml
+    cat ~/telemetry.yaml
     ```{{exec}}
 
     ```
-    k apply -f telemetry.yaml
+    k apply -f ~/telemetry.yaml
     ```{{exec}}
 
 
