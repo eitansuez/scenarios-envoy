@@ -37,6 +37,17 @@ These addons are located in the `samples/addons/` folder of the distribution.
     k apply -f kiali.yaml
     ```{{exec}}
 
+1. Configure zipkin as the tracing provider by applying the following Telemetry resource:
+
+    ```
+    cat telemetry.yaml
+    ```{{exec}}
+
+    ```
+    k apply -f telemetry.yaml
+    ```{{exec}}
+
+
 1. Verify that the `istio-system` namespace is now running additional workloads for each of the addons.
 
     ```
